@@ -1,0 +1,9 @@
+{% if post %}
+    <h3>글 제목 : {{ post['title'] }}</h3>
+
+    {% for line in post['text'] %}
+        <p> {{ line }} </p>
+    {% endfor %}
+{% else %}
+    <p>텍스트를 가져오지 못했습니다. url을 다시 입력해주세요.</p>
+{% endif %}
