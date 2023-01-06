@@ -8,44 +8,41 @@
 
 </head>
 <body>
-    <h1>블로그 포스트 스크래퍼</h1>
-    <p>드래그나 복사가 금지된 블로그 글의 <b>제목</b>과 <b>본문</b> 내용을 스크랩하는 프로그램입니다.</p>
-    <br>
-    <form action="/result" method="GET">
-<!--        <textarea name="content" id="content" row="200" style="width:500px; resize:none;"></textarea>-->
-<!--        <br>-->
-<!--        <input type="submit" value="스크랩하기">-->
-
-         <div>
-            <label for="url"> 글의 url을 입력해주세요: </label>
-            <input type="text" name="url">
-        </div>
-        <button type="submit">스크랩하기</button>
-    </form>
-
-    <div>
-        {% if post %}
-            <h3>글 제목 : {{ post['title'] }}</h3>
-
-            {% for line in post['text'] %}
-                <p> {{ line }} </p>
-            {% endfor %}
-        {% endif %}
-    </div>
-
     <div class="container">
+            <div class="demo-flex-spacer"></div>
+                <h1 class="demo">블로그 포스트 스크래퍼</h1>
+                <p class="demo">드래그, 우클릭, 복사가 금지된 블로그 글의 <b>제목</b>과 <b>본문</b> 내용을 스크랩하는 프로그램입니다.</p>
+                <br>
+                <form action="/result" method="GET">
+                     <div class="webflow-style-input">
+                        <input class="" type="url" type="text" name="url" placeholder="글의 url 주소를 입력하세요">
+                         <button type="submit"><b>&#8594;</b></button>
+                    </div>
 
-      <div class="demo-flex-spacer"></div>
-        <h1 class="demo">블로그 포스트 스크래퍼</h1>
-      <div class="webflow-style-input">
-        <input class="" type="email" placeholder="글의 url 주소를 입력하세요"></input>
-          <button type="submit"><b>&#8594;</b></button>
-      </div>
-
-      <div class="demo-flex-spacer"></div>
-
-      <a class="demo" href="https://webflow.com/cms" title="Webflow CMS">https://webflow.com/cms</a>
-
+                </form>
+                {% if post %}
+                <h3 class="demo">제목 : {{ post['title'] }}</h3>
+                <div>
+                        <textarea class="webflow-style-textarea" >{% for line in post['text'] %}{{ line+'\n' }}{% endfor %}</textarea>
+                </div>
+                {% endif %}
+        <div class="demo-flex-spacer"></div>
+        <a class="demo" href="https://webflow.com/cms" title="Webflow CMS">https://webflow.com/cms</a>
     </div>
+
+<!--    <div class="container">-->
+
+<!--      <div class="demo-flex-spacer"></div>-->
+<!--        <h1 class="demo">블로그 포스트 스크래퍼</h1>-->
+<!--      <div class="webflow-style-input">-->
+<!--        <input class="" type="email" placeholder="글의 url 주소를 입력하세요"></input>-->
+<!--          <button type="submit"><b>&#8594;</b></button>-->
+<!--      </div>-->
+
+<!--      <div class="demo-flex-spacer"></div>-->
+
+<!--      <a class="demo" href="https://webflow.com/cms" title="Webflow CMS">https://webflow.com/cms</a>-->
+
+<!--    </div>-->
 </body>
 </html>
